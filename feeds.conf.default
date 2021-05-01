@@ -10,6 +10,6 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 src-git helloworld https://github.com/fw876/helloworld
 src-git kenzok https://github.com/kenzok8/openwrt-packages
 src-git small https://github.com/kenzok8/small
-#src-git dockerman https://github.com/lisaac/luci-app-dockerman
-#src-git docker https://github.com/lisaac/luci-lib-docker
-src-git opentopd  https://github.com/sirpdboy/sirpdboy-package
+src-git dockerman https://github.com/lisaac/luci-app-dockerman
+src-git docker https://github.com/lisaac/luci-lib-docker
+#src-git opentopd  https://github.com/sirpdboy/sirpdboy-package
