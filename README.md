@@ -2,7 +2,7 @@
 
 刷入emmc方法：
 
-1：cd/root
+1：cd /root
 
 2：./install-to-emmc.sh
 
