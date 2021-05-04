@@ -1,5 +1,9 @@
+默认IP：10.10.10.10
+
 刷入emmc方法：
+
 1：cd/root
+
 2：./install-to-emmc.sh
 
 ![image](https://user-images.githubusercontent.com/59167936/116875998-5fd2a900-ac4e-11eb-8f35-b85f05aa19b2.png)
