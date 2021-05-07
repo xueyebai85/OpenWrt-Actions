@@ -16,7 +16,3 @@ sed -i 's/192.168.1.1/10.10.10.10/g' package/base-files/files/bin/config_generat
 # cpufreq
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 sed -i 's/services/system/g' package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
-
-# 替换默认主题
-sed -i 's#luci-theme-opentomcat#luci-theme-opentopd#g' feeds/luci/collections/luci/Makefile
-sed -i '/set luci.main.mediaurlbase=\/luci-static\/opentomcat/d' feeds/luci/themes/luci-theme-opentomcat/root/etc/uci-defaults/30_luci-theme-opentomcat
