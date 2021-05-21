@@ -1,3 +1,15 @@
+# 默认IP：10.10.10.10
+
+## 写入EMMC:
+**cd /root**
+**./install-to-emmc**
+
+## 升级：
+**把 update-amlogic-openwrt.sh 及 img镜像上传至 /mnt/mmcblk2p4**
+**cd /mnt/mmcblk2p4**
+**chmod 755 update-amlogic-openwrt.sh**
+**./update-amlogic-openwrt.sh xxxxxx.img**
+
 # 精简插件截图
 ![image](https://user-images.githubusercontent.com/59167936/118109872-4ed72400-b414-11eb-90d5-64c1fea5c48b.png)
 ![image](https://user-images.githubusercontent.com/59167936/118109905-58f92280-b414-11eb-943a-ec3cedd1ad97.png)
