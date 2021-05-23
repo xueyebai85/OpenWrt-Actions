@@ -1,5 +1,5 @@
 # Telegram：https://t.me/OpenWrt_Yuan
-## 版本更新github上传固件，插件更新Telegram频道上传
+## 版本升级github上传固件，插件升级Telegram频道上传固件
 # 默认IP：10.10.10.10
 ## 写入EMMC:
 **cd /root**
