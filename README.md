@@ -1,3 +1,4 @@
+# Telegram通知：https://t.me/OpenWrt_Yuan
 # 默认IP：10.10.10.10
 
 ## 写入EMMC:
