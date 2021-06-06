@@ -24,8 +24,8 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
-  FILE_NAME: luci
-  PRODUCT_NAME: luci
+  FILE_NAME: diy-part2
+  PRODUCT_NAME: diy-part2
 
 jobs:
   build:
@@ -164,4 +164,4 @@ jobs:
 
     - name: Telegram notification
       if: steps.organize.outputs.status == 'success' && !cancelled()
-      curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=${{ env.FILE_NAME }}luci更新了" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
+      run: curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=${{ env.FILE_NAME }}luci编译完成" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
