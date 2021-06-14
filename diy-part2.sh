@@ -16,8 +16,8 @@ sed -i 's/192.168.1.1/10.10.10.10/g' package/base-files/files/bin/config_generat
 # Hostname
 sed -i 's/OpenWrt/qnmlgb/g' package/base-files/files/bin/config_generate
 
-#Timezone
-sed -i "s/'UTC'/'CST-8'\n   set system.@system[-1].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
+# Timezone
+#sed -i "s/'UTC'/'CST-8'\n   set system.@system[-1].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
 
 # cpufreq
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
