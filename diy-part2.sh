@@ -33,3 +33,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-pass
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+
+# Delete Docker Initialization Tutorial
+sed -i '31,39d' package/lean/luci-app-docker/po/zh-cn/docker.po
+rm -rf lean/luci-app-docker/root/www
