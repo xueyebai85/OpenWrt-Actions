@@ -35,5 +35,5 @@ git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-a
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 # Delete Docker Initialization Tutorial
-sed -i '31,39d' package/lean/luci-app-docker/po/zh-cn/docker.po
-rm -rf lean/luci-app-docker/root/www
+#sed -i '31,39d' package/lean/luci-app-docker/po/zh-cn/docker.po
+#rm -rf lean/luci-app-docker/root/www
