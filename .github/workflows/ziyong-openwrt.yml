@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt Dazahui
+name: ziyong
 
 on:
   repository_dispatch:
@@ -23,9 +23,9 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: Dazahui.config
+  CONFIG_FILE: ziyong.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
+  DIY_P2_SH: diy-svn.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -191,4 +191,4 @@ jobs:
 
     - name: Telegram notification
       if: steps.organize.outputs.status == 'success' && !cancelled()
-      run: curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=${{ steps.tag.outputs.release_tag }}😀😀😀编译完成啦😀😀😀" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
+      run: curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=${{ steps.tag.outputs.release_tag }}😀😀😀自用编译完成啦😀😀😀" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
