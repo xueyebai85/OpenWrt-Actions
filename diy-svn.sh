@@ -29,10 +29,12 @@ sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/theme
 
 # Add additional packages
 git clone https://github.com/fw876/helloworld.git package/helloworld
+it clone https://github.com/virualv/luci-theme-pink.git  package/luci-theme-pink
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+
 
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
 #svn co https://github.com/fw876/helloworld/trunk package/openwrt-ssrplus
