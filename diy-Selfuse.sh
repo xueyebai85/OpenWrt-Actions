@@ -6,12 +6,12 @@
 # See /LICENSE for more information.
 #
 # https://github.com/P3TERX/Actions-OpenWrt
-# File name: diy-part2.sh
+# File name: diy-Selfuse.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/10.10.10.10/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.2.2/g' package/base-files/files/bin/config_generate
 
 # Hostname
 sed -i 's/OpenWrt/qnmlgb/g' package/base-files/files/bin/config_generate
