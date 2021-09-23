@@ -38,3 +38,6 @@ git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-th
 
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
 #svn co https://github.com/fw876/helloworld/trunk package/openwrt-ssrplus
+
+./scripts/feeds update -a
+./scripts/feeds install -a
