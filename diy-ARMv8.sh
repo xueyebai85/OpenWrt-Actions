@@ -39,3 +39,6 @@ git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-th
 
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
 #svn co https://github.com/fw876/helloworld/trunk package/openwrt-ssrplus
+
+# dockerd去版本验证
+sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
