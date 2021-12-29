@@ -202,12 +202,12 @@ jobs:
           KERNEL_AUTO_LATEST:  true
           KERNEL_VERSION_NAME: 5.4.168_5.10.88_5.15.11
           WHOAMI: Yuan
-          artifacts: "/opt/openwrt_packit/output/*"
+          artifacts: ${{ env.FIRMWARE }}/*
           
     - name: copy update files
       run: |
         cd /opt/openwrt_packit
-        sudo cp files/openwrt-update-amlogic output/openwrt-update-amlogic
+        sudo cp files/scripts_deprecated/update-amlogic-openwrt.sh output/update-amlogic-openwrt.sh
           
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
