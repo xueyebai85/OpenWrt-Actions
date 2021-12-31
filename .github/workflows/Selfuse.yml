@@ -212,11 +212,10 @@ jobs:
     - name: copy update files
       run: |
         cd /opt/openwrt_packit
-        sudo cp files/scripts_deprecated/update-amlogic-openwrt.sh output/update-amlogic-openwrt.sh/${{ env.PACKAGED_OUTPUTPATH }}/*
+        sudo cp files/scripts_deprecated/update-amlogic-openwrt.sh output/update-amlogic-openwrt.sh
           
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
-      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
          name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
          allowUpdates: true
