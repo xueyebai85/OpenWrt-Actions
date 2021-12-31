@@ -195,7 +195,7 @@ jobs:
 
 
     - name: Package Armvirt as OpenWrt
-      uses: ophub/amlogic-s9xxx-openwrt@main
+      uses: unifreq/openwrt_packit@master
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
         PACKAGE_SOC: s905d_s905x3_s922x_vplus_beikeyun_l1pro_s912
@@ -208,6 +208,11 @@ jobs:
         HW_FLOWOFFLOAD: 0
         SFE_FLOW: 0
         artifacts: ${{ env.FIRMWARE }}/*
+        
+    - name: copy update files
+      run: |
+        cd /opt/openwrt_packit
+        sudo cp files/scripts_deprecated/update-amlogic-openwrt.sh output/update-amlogic-openwrt.sh
           
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
@@ -221,11 +226,6 @@ jobs:
            This is OpenWrt firmware for Armvirt 64
            * Firmware information
            自用固件，插件根据个人需要.
-           
-#    - name: copy update files
-#     run: |
-#        cd /opt/openwrt_packit
-#        sudo cp files/scripts_deprecated/update-amlogic-openwrt.sh output/update-amlogic-openwrt.sh
         
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
