@@ -227,7 +227,9 @@ jobs:
          body: |
            This is OpenWrt firmware for Armvirt 64
            * Firmware information
-           自用固件，插件根据个人需要.
+           * 自用固件，插件根据个人需要.
+           * 默认IP: 192.168.1.1
+           * 默认密码: password
         
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
