@@ -219,9 +219,9 @@ jobs:
          body: |
            This is OpenWrt firmware for Armvirt 64
            * Firmware information
-           Default IP: 10.10.10.10
-           Default username: root
-           Default password: password
+           * Default IP: 10.10.10.10
+           * Default username: root
+           * Default password: password
            
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
