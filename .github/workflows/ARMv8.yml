@@ -219,6 +219,8 @@ jobs:
          body: |
            This is OpenWrt firmware for Armvirt 64
            * Firmware information
+           * Selfuse是自用固件，插件根据个人需要删减.
+           * ARMv8是精简固件.
            * Default IP: 10.10.10.10
            * Default username: root
            * Default password: password
