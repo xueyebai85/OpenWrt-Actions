@@ -198,6 +198,7 @@ jobs:
       uses: unifreq/openwrt_packit@master
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
+         cp files/scripts_deprecated/update-amlogic-openwrt.sh output/update-amlogic-openwrt.sh
         PACKAGE_SOC: s905d_s905x3_s922x_vplus_beikeyun_l1pro_s912
         KERNEL_AUTO_LATEST:  true
         KERNEL_VERSION_NAME: 5.4.168_5.10.88_5.15.11
@@ -207,6 +208,7 @@ jobs:
         SW_FLOWOFFLOAD: 0
         HW_FLOWOFFLOAD: 0
         SFE_FLOW: 0
+        FULLCONE_NAT: 0
         SELECT_PACKITPATH: openwrt_packit
         SELECT_OUTPUTPATH: output
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
