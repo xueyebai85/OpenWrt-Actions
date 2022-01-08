@@ -208,7 +208,6 @@ jobs:
         HW_FLOWOFFLOAD: 0
         SFE_FLOW: 0
         FULLCONE_NAT: 0
-         ecoh cp files/scripts_deprecated/update-amlogic-openwrt.sh output/update-amlogic-openwrt.sh
         SELECT_PACKITPATH: openwrt_packit
         SELECT_OUTPUTPATH: output
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
