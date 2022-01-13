@@ -204,10 +204,9 @@ jobs:
         WHOAMI: Yuan
         ENABLE_WIFI_K504: 0
         ENABLE_WIFI_K510: 0
-        SW_FLOWOFFLOAD: 0
+        SW_FLOWOFFLOAD: 1
         HW_FLOWOFFLOAD: 0
         SFE_FLOW: 0
-        FULLCONE_NAT: 0
         SELECT_PACKITPATH: openwrt_packit
         SELECT_OUTPUTPATH: output
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
