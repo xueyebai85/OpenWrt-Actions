@@ -212,12 +212,12 @@ jobs:
         SELECT_PACKITPATH: openwrt_packit
         SELECT_OUTPUTPATH: output
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
-        
+
     - name: copy update files
       run: |
         cd /opt/openwrt_packit
         sudo cp files/scripts_deprecated/update-amlogic-openwrt.sh output/update-amlogic-openwrt.sh
-        
+
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
       with:
@@ -233,7 +233,7 @@ jobs:
            * ARMv8是精简固件.
            * 默认IP: 192.168.1.1
            * 默认密码: password
-        
+
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
       with:
