@@ -214,12 +214,10 @@ jobs:
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
 
     - name: copy update files
-      run: |
-        cd /opt/openwrt_packit
-        sudo cp files/scripts_deprecated/update-amlogic-openwrt.sh output/update-amlogic-openwrt.sh
-        sudo cp files/update-beikeyun-openwrt.sh output/update-beikeyun-openwrt.sh
-        sudo cp files/update-l1pro-openwrt.sh output/update-l1pro-openwrt.sh
-        sudo cp files/update-vplus-openwrt.sh output/update-vplus-openwrt.sh
+       run: |
+         cd /opt/openwrt_packit
+         sudo cp ./files/update*.sh ./output/
+         echo "::set-output name=status::success"
 
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
