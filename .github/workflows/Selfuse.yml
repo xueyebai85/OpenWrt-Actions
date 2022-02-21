@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Selfuses
+name: Selfuse
 
 on:
   repository_dispatch:
@@ -214,7 +214,7 @@ jobs:
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
 
     - name: copy update files
-       run: |
+      run: |
          cd /opt/openwrt_packit
          sudo cp ./files/update*.sh ./output/
          echo "::set-output name=status::success"
