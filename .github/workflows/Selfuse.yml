@@ -215,30 +215,30 @@ jobs:
 
     - name: copy update files
       run: |
-         cd /opt/openwrt_packit
-         sudo cp ./files/update*.sh ./output/
-         echo "::set-output name=status::success"
+        cd /opt/openwrt_packit
+        sudo cp ./files/update*.sh ./output/
+        echo "::set-output name=status::success"
 
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
       with:
-         allowUpdates: true
-         removeArtifacts: true
-         tag: Selfuse_OpenWrt_${{ env.PACKAGED_OUTPUTDATE }}
-         token: ${{ secrets.GITHUB_TOKEN }}
-         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
-         body: |
-           This is OpenWrt firmware for Armvirt 64
-           * Firmware information
-           * Selfuse是自用固件，插件根据个人需要删减.
-           * ARMv8是精简固件.
-           * 默认IP: 192.168.1.1
-           * 默认密码: password
+        allowUpdates: true
+        removeArtifacts: true
+        tag: Selfuse_OpenWrt_${{ env.PACKAGED_OUTPUTDATE }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        body: |
+          This is OpenWrt firmware for Armvirt 64
+          * Firmware information
+          * Selfuse是自用固件，插件根据个人需要删减.
+          * ARMv8是精简固件.
+          * 默认IP: 192.168.1.1
+          * 默认密码: password
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
       with:
-         keep_latest: 4
-         delete_tags: true
+        keep_latest: 4
+        delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
