@@ -56,6 +56,17 @@ jobs:
       with:
         retain_days: 1
         keep_minimum_runs: 1
+        
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@v0.2.0
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        repo:
+        keep_latest: 4
+        delete_tag_pattern:
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
 
     - name: Source Code Update notification
       if: steps.cacheHash.outputs.cache-hit != 'true'
