@@ -250,9 +250,9 @@ jobs:
       uses: dev-drprasad/delete-older-releases@v0.2.0
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        repo:
+        repo: <owner>/<repoName>
         keep_latest: 4
-        delete_tag_pattern:
+        delete_tag_pattern: beta
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
