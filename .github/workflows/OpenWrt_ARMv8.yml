@@ -60,12 +60,12 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
-    - name: Cache
-      uses: klever1988/cachewrtbuild@test
-      with:
-        ccache: 'true'
-        prefix: ${{ github.workspace }}/openwrt
+
+#    - name: Cache
+#      uses: klever1988/cachewrtbuild@test
+#      with:
+#        ccache: 'true'
+#        prefix: ${{ github.workspace }}/openwrt
 
     - name: Load custom feeds
       run: |
@@ -191,7 +191,7 @@ jobs:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
         PACKAGE_SOC: s905d_s905x3_s922x_vplus_beikeyun_l1pro_s912
         KERNEL_AUTO_LATEST:  true
-        KERNEL_VERSION_NAME: 5.4.168_5.10.88_5.15.11_5.16.2
+        KERNEL_VERSION_NAME: 5.4.168_5.10.88_5.15.11_5.16.2_5.17.1
         WHOAMI: Yuan
         artifacts: ${{ env.FIRMWARE }}/*
 
@@ -220,8 +220,8 @@ jobs:
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
-        retain_days: 7
-        keep_minimum_runs: 1
+        retain_days: 1
+        keep_minimum_runs: 3
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.2.0
