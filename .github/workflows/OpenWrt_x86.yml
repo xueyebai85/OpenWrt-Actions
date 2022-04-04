@@ -60,12 +60,12 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
-    - name: Cache
-      uses: klever1988/cachewrtbuild@test
-      with:
-        ccache: 'true'
-        prefix: ${{ github.workspace }}/openwrt
+
+#    - name: Cache
+#      uses: klever1988/cachewrtbuild@test
+#      with:
+#        ccache: 'true'
+#        prefix: ${{ github.workspace }}/openwrt
 
     - name: Load custom feeds
       run: |
@@ -183,8 +183,8 @@ jobs:
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
-        retain_days: 7
-        keep_minimum_runs: 1
+        retain_days: 1
+        keep_minimum_runs: 3
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.2.0
