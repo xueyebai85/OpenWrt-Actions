@@ -30,7 +30,8 @@ sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/theme
 # Add additional packages
 git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/openwrt-passwall/luci-app-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
+git clone --depth=1 -b luci https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 git clone --depth=1 https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 
 # dockerd去版本验证
