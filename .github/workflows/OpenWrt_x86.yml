@@ -30,7 +30,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
-  UPLOAD_RELEASE: true
+  UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
 jobs:
@@ -176,18 +176,29 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: x86_OpenWrt_${{ steps.tag.outputs.release_tag }}
-        body_path: |
-               This is OpenWrt firmware for x86 /
-               * Firmware information /
-               * x86是自用固件，插件根据个人需要删减. /
-               * 默认IP: 192.168.1.1 /
-               * 默认密码: password.txt
+        tag_name: ${{ steps.tag.outputs.release_tag }}
+        body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
     - name: Telegram notification
       if: steps.organize.outputs.status == 'success' && !cancelled()
       run: curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=${{ steps.tag.outputs.release_tag }}😀😀😀x86编译完成啦😀😀😀" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
+
+    - name: Upload OpenWrt Firmware to Release
+      uses: ncipollo/release-action@v1
+      with:
+        tag: x86_OpenWrt_${{ env.PACKAGED_OUTPUTDATE }}
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        allowUpdates: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+        body: |
+          This is OpenWrt firmware for x86
+          * Firmware information
+          * x86是自用固件，插件根据个人需要删减.
+          * x86是精简固件.
+          * Default IP: 192.168.1.1
+          * Default username: root
+          * Default password: password
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
