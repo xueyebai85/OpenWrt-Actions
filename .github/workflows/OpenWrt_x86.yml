@@ -178,12 +178,11 @@ jobs:
       with:
         tag_name: x86_OpenWrt_${{ steps.tag.outputs.release_tag }}
         body_path: |
-               This is OpenWrt firmware for x86
-               * Firmware information
-               * x86是自用固件，插件根据个人需要删减.
-               * ARMv8是精简固件.
-               * 默认IP: 192.168.1.1
-               * 默认密码: password
+               This is OpenWrt firmware for x86 /
+               * Firmware information /
+               * x86是自用固件，插件根据个人需要删减. /
+               * 默认IP: 192.168.1.1 /
+               * 默认密码: password.txt
         files: ${{ env.FIRMWARE }}/*
 
     - name: Telegram notification
