@@ -171,13 +171,12 @@ jobs:
         echo "::set-output name=status::success"
 
     - name: Upload OpenWrt Firmware to Release
-      id: release
       uses: ncipollo/release-action@v1
       with:
         name: x86_OpenWrt_${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
-        token: ${{ secrets.RELEASES_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         body: |
           This is OpenWrt firmware for x86
           * Firmware information
