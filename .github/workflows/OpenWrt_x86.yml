@@ -175,7 +175,7 @@ jobs:
       with:
         name: x86_OpenWrt_${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
         allowUpdates: true
-        tag: ${{ env.FILE_NAME }}
+        tag: OpenWrt_x86_${{ env.FILE_NAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
           This is OpenWrt firmware for x86
