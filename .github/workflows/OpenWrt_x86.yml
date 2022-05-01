@@ -174,8 +174,8 @@ jobs:
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
       with:
-        name: OpenWrt_x86_${{ env.PRODUCT_NAME }} for ${{ env.DATE }}
-        tag: OpenWrt_x86_${{ env.FILE_NAME }}
+        name: OpenWrt_x86_${{ env.PRODUCT_NAME }} && $(date +"%Y.%m.%d-%H%M")
+        tag: OpenWrt_x86${{ env.FILE_NAME }} && $(date +"%Y.%m.%d-%H%M")
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
         removeArtifacts: true
