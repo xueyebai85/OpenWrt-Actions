@@ -28,3 +28,5 @@
 - GitHub Actions
 - OpenWrt
 - Lean's OpenWrt
+
+![](http://profile-counter.glitch.me/OpenWrt-ARMv8/count.svg)
