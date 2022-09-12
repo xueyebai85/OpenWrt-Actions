@@ -182,13 +182,15 @@ jobs:
         files: ${{ env.FIRMWARE }}/*
 
     - name: Package Armvirt as OpenWrt
-      uses: unifreq/openwrt_packit@master
+      uses: ophub/flippy-openwrt-actions@main
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
-        KERNEL_REPO_URL: https://github.com/ophub/kernel/tree/main/pub/stable
-        PACKAGE_SOC: s905d_s905x3_s922x_vplus_beikeyun_l1pro_s912_r68s
+        SCRIPT_REPO_URL: https://github.com/yunxi993/OpenWrt-ARMv8/tree/main/kernel
+        PACKAGE_SOC: vplus_beikeyun_l1pro_r68s_s905_s905d_s905x2_s905x3_s912_s922x_s922x-n2
         KERNEL_AUTO_LATEST:  true
-        KERNEL_VERSION_NAME: 5.4.188_5.15.46_5.18.3_5.19.1
+        KERNEL_VERSION_NAME: 5.15.67_5.19.8
+        WHOAMI: Yuan
+        artifacts: ${{ env.FIRMWARE }}/*
         WHOAMI: Yuan
         ENABLE_WIFI_K504: 0
         ENABLE_WIFI_K510: 0
