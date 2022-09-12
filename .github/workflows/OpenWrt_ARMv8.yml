@@ -190,7 +190,6 @@ jobs:
         KERNEL_AUTO_LATEST:  true
         KERNEL_VERSION_NAME: 5.15.67_5.19.8
         WHOAMI: Yuan
-        artifacts: ${{ env.FIRMWARE }}/*
 
     - name: copy update files
       run: |
