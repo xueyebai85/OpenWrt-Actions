@@ -175,10 +175,7 @@ jobs:
         removeArtifacts: true
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
-          This is OpenWrt firmware for x86
-          * Firmware information
-          * x86是自用固件，插件根据个人需要删减.
-          * x86是精简固件.
+          * x86 精简固件
           * Default IP: 192.168.1.1
           * Default username: root
           * Default password: password

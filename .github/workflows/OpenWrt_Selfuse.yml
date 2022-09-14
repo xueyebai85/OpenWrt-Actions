@@ -212,12 +212,10 @@ jobs:
         removeArtifacts: true
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
-          This is OpenWrt firmware for Armvirt 64
-          * Firmware information
-          * Selfuse是自用固件，插件根据个人需要删减.
-          * ARMv8是精简固件.
-          * 默认IP: 192.168.1.1
-          * 默认密码: password
+          * Selfuse 用于测试
+          * Default IP: 192.168.1.11
+          * Default username: root
+          * Default password: password
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
