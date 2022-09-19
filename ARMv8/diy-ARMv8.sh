@@ -16,6 +16,9 @@
 # Hostname
 sed -i 's/OpenWrt/qnmlgb/g' package/base-files/files/bin/config_generate
 
+# Enable AAAA
+echo option filter_aaaa	1 | sed -i 's/1/0/g' /package/network/services/dnsmasq/files/dhcp.conf
+
 # Timezone
 #sed -i "s/'UTC'/'CST-8'\n   set system.@system[-1].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
 
