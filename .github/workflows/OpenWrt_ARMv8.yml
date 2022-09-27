@@ -23,9 +23,9 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ARMv8/OpenWrt_ARMv8.config
-  DIY_P1_SH: ARMv8/diy-part1.sh
-  DIY_P2_SH: ARMv8/diy-ARMv8.sh
+  CONFIG_FILE: config/ARMv8/OpenWrt_ARMv8.config
+  DIY_P1_SH: config/ARMv8/diy-part1.sh
+  DIY_P2_SH: config/ARMv8/diy-ARMv8.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
