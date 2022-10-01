@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt_x86
+name: OpenWrt_ARMv8
 
 on:
   repository_dispatch:
@@ -23,10 +23,10 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/x86/OpenWrt_x86.config
-  DIY_P1_SH: config/x86/diy-part1.sh
-  DIY_P2_SH: config/x86/diy-x86.sh
-  UPLOAD_BIN_DIR: false
+  CONFIG_FILE: config/ARMv8/ARMv8.config
+  DIY_P1_SH: config/ARMv8/diy-part1.sh
+  DIY_P2_SH: config/ARMv8/diy-ARMv8.sh
+  UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
@@ -60,6 +60,12 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+
+#    - name: Cache
+#      uses: klever1988/cachewrtbuild@test
+#      with:
+#        ccache: 'true'
+#        prefix: ${{ github.workspace }}/openwrt
 
     - name: Load custom feeds
       run: |
@@ -126,7 +132,7 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
-        rm -rf packages config.buildinfo feeds.buildinfo sha256sums version.buildinfo *.manifest Packages.tar.gz
+        rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
@@ -165,17 +171,43 @@ jobs:
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "::set-output name=status::success"
 
+    - name: Upload firmware to release
+      uses: softprops/action-gh-release@v1
+      if: steps.tag.outputs.status == 'success' && !cancelled()
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.tag.outputs.release_tag }}
+        body_path: release.txt
+        files: ${{ env.FIRMWARE }}/*
+
+    - name: Package Armvirt as OpenWrt
+      uses: ophub/flippy-openwrt-actions@main
+      env:
+        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
+        KERNEL_REPO_URL: https://github.com/yunxi993/OpenWrt-ARMv8/tree/main/kernel
+        PACKAGE_SOC: vplus_beikeyun_l1pro_r66s_r68s_s905_s905d_s905x2_s905x3_s912_s922x_s922x-n2
+        KERNEL_AUTO_LATEST:  true
+        KERNEL_VERSION_NAME: 5.15.67_5.19.8
+        WHOAMI: Yuan
+
+    - name: copy update files
+      run: |
+        cd /opt/openwrt_packit
+        sudo cp ./files/update*.sh ./output/
+        echo "::set-output name=status::success"
+
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
       with:
-        name: OpenWrt_x86_${{ env.PRODUCT_NAME }}${{ env.DATE }}
-        tag: OpenWrt_x86${{ env.FILE_NAME }}
-        artifacts: ${{ env.FIRMWARE }}/*
+        name: OpenWrt_ARMv8 ${{ env.PRODUCT_NAME }}${{ env.DATE }}
+        tag: OpenWrt_ARMv8${{ env.FILE_NAME }}
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
         removeArtifacts: true
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
-          * x86 精简固件
+          * ARMv8 精简固件.
           * Default IP: 192.168.1.1
           * Default username: root
           * Default password: password
@@ -200,6 +232,6 @@ jobs:
       run: |
         MSG="
         编译时间：${{ env.DATE }}
-        x86 编译完成
+        ARMv8 编译完成
         "
         curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=${MSG}"
