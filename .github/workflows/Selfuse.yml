@@ -128,7 +128,7 @@ jobs:
         path: openwrt/bin
 
     - name: Upload Packags
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@main
       with:
         name: OpenWrt_IPK
         path: |
