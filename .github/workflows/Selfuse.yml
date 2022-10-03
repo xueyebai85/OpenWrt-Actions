@@ -131,6 +131,7 @@ jobs:
     - uses: actions/upload-artifact@main
       with:
         name: OpenWrt_IPK
+        run: |
         path: |
           path/openwrt/bin/aarch64_cortex-a53/luci
           path/openwrt/bin/aarch64_cortex-a53/base
