@@ -127,6 +127,14 @@ jobs:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
 
+    - name: Upload Packags
+    - uses: actions/upload-artifact@v3
+      with:
+        name: OpenWrt_IPK
+        path: |
+          path/openwrt/bin/aarch64_cortex-a53/luci
+          path/openwrt/bin/aarch64_cortex-a53/base
+
     - name: Organize files
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
@@ -208,6 +216,7 @@ jobs:
         name: OpenWrt_Selfuse ${{ env.PRODUCT_NAME }}${{ env.DATE }}
         tag: OpenWrt_Selfuse${{ env.FILE_NAME }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        artifacts: ${{ env.OpenWrt_IPK }}/*
         allowUpdates: true
         removeArtifacts: true
         token: ${{ secrets.GITHUB_TOKEN }}
