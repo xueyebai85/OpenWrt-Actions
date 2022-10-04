@@ -127,21 +127,11 @@ jobs:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
 
-    - name: Upload Packags
-      uses: actions/upload-artifact@main
-      with:
-        name: Selfuse_IPK
-        path: |
-          openwrt/bin/packages/aarch64_cortex-a53/luci
-          openwrt/bin/packages/aarch64_cortex-a53/base
-
     - name: Organize files
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd $GITHUB_WORKSPACE
-        tar -zcvf Selfuse_IPK.tar.gz openwrt/Selfuse_IPK
-        cp Selfuse_IPK.tar.gz openwrt/bin/targets/*/*
         cd openwrt/bin/targets/*/*
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
