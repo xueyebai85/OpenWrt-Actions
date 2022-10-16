@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt_Selfuse
+name: OpenWrt_Test
 
 on:
   repository_dispatch:
@@ -163,7 +163,7 @@ jobs:
         HW_FLOWOFFLOAD: 0
         SFE_FLOW: 0
 
-   - name: copy update files
+    - name: copy update files
       run: |
         cd /opt/openwrt_packit
         cp ./files/update*.sh ./output/
