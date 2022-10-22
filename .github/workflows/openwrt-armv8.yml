@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt ARMv8
+name: OpenWrt-ARMv8
 
 on:
   repository_dispatch:
@@ -22,10 +22,10 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/armv8/armv8.config
-  DIY_P1_SH: config/armv8/diy-part1.sh
-  DIY_P2_SH: config/armv8/diy-armv8.sh
+  FEEDS_CONF: config/lean/feeds.conf.default
+  CONFIG_FILE: config/lean/armv8/armv8.config
+  DIY_P1_SH: config/lean/armv8/diy-part1.sh
+  DIY_P2_SH: config/lean/armv8/diy-armv8.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   UPLOAD_COWTRANSFER: false
@@ -112,7 +112,7 @@ jobs:
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
         echo "FILE_DATE=$(date +"%Y-%m-%d %H%M")" >> $GITHUB_ENV
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
-        echo "TAG_DATE=$(date +"%m%d%H%M%S")" >> $GITHUB_ENV
+        echo "TAG_DATE=$(date +"%m%d%-H%M%S")" >> $GITHUB_ENV
 
     - name: Check space usage
       if: (!cancelled())
