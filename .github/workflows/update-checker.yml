@@ -20,6 +20,9 @@ on:
   schedule:
     - cron: 0 22 * * *
 
+  repository_dispatch:
+    types: [lede Source Code Update]
+    
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -44,16 +47,15 @@ jobs:
 #      run: |
 #        echo ${{ steps.getHash.outputs.commitHash }} | tee .commitHash
 #
-    - name: Trigger build
-      if: steps.cacheHash.outputs.cache-hit != 'true'
-      uses: peter-evans/repository-dispatch@v2
-      with:
-        token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
-        event-type: lede Source Code Update
-        client-payload: '{"workflow_file": "Build-OpenWRT.yml"}'
+#    - name: Trigger build
+#      if: steps.cacheHash.outputs.cache-hit != 'true'
+#      uses: peter-evans/repository-dispatch@v2
+#      with:
+#        token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
+#        event-type: lede Source Code Update
+#        client-payload: '{"workflow_file": "Build-OpenWRT.yml"}'
 
     - name: Run designated workflow
-      if: github.event.client_payload.workflow_file == 'Build-OpenWRT.yml'
       uses: ./.github/workflows/Build-OpenWRT.yml
 
     - name: Source Code Update notification
