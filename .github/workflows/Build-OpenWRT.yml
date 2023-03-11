@@ -12,9 +12,6 @@ name: Build-OpenWRT
 
 on:
   repository_dispatch:
-    types: [Build-OpenWRT]
-    paths:
-      - $.client_payload.workflow_file
   workflow_dispatch:
     inputs:
       ssh:
