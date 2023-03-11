@@ -11,7 +11,7 @@
 name: Build-x86-Docker
 
 on:
-  repository_dispatch:
+#  repository_dispatch:
   workflow_dispatch:
     inputs:
       ssh:

@@ -48,7 +48,6 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       uses: peter-evans/repository-dispatch@v2
       with:
-        workflow_path: ./Build-OpenWRT.yml
         token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
         event-type: lede Source Code Update
 
