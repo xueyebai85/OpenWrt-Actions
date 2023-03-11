@@ -46,7 +46,7 @@ jobs:
         token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
         event-type: lede Source Code Update
 
-    - name: Run Build-x86.yml
+    - name: Designated workflow
       if: github.event.repository.name == 'Build-OpenWRT'
       uses: ./.github/workflows/Build-xOpenWRT.yml
 
