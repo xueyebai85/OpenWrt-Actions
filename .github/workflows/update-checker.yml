@@ -39,6 +39,9 @@ jobs:
 #        path: .commitHash
 #        key: HEAD-${{ steps.getHash.outputs.commitHash }}
 
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: Trigger build
       if: steps.cacheHash.outputs.cache-hit != 'true'
       uses: peter-evans/repository-dispatch@v2
