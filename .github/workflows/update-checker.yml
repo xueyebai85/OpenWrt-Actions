@@ -48,7 +48,7 @@ jobs:
 
     - name: Designated workflow
       if: github.event.repository.name == 'Build-OpenWRT'
-      uses: ./.github/workflows/Build-xOpenWRT.yml
+      uses: ./.github/workflows/Build-OpenWRT.yml
 
 #    - name: Save New Commit Hash
 #      if: steps.cacheHash.outputs.cache-hit != 'true'
