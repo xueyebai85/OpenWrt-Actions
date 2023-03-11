@@ -40,7 +40,7 @@ jobs:
 #        key: HEAD-${{ steps.getHash.outputs.commitHash }}
 
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Trigger build
       if: steps.cacheHash.outputs.cache-hit != 'true'
@@ -50,9 +50,10 @@ jobs:
         event-type: lede Source Code Update
 
     - name: Designated workflow
-      uses: ./.github/workflows/Build-OpenWRT.yml
-      with: 
-        path: ./.github/workflows/Build-OpenWRT.yml
+      run: |
+        cd ./.github/workflows
+        chmod +x ./Build-OpenWRT.yml
+        ./Build-OpenWRT.yml
 #
 #    - name: Save New Commit Hash
 #      if: steps.cacheHash.outputs.cache-hit != 'true'
