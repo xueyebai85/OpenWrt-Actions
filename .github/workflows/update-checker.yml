@@ -39,16 +39,17 @@ jobs:
 #        path: .commitHash
 #        key: HEAD-${{ steps.getHash.outputs.commitHash }}
 #
-    - name: Trigger build
+    - name: Check build status
+      id: Build-OpenWRT
+      uses: ./.github/workflows/Build-OpenWRT.yml
       if: steps.cacheHash.outputs.cache-hit != 'true' && !contains(jobs.Build-OpenWRT.outputs.job-status, 'in_progress')
+
+    - name: Trigger build
+      if: steps.cacheHash.outputs.cache-hit != 'true' && github.event.repository.name == 'Build-OpenWRT' && github.event_name == 'repository_dispatch' && !contains(jobs.Build-OpenWRT.outputs.job-status, 'in_progress')
       uses: peter-evans/repository-dispatch@v2
       with:
         token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
         event-type: lede Source Code Update
-
-    - name: Run Build-x86.yml
-      if: github.event.repository.name == 'Build-OpenWRT' && github.event_name == 'repository_dispatch' && !contains(jobs.Build-OpenWRT.outputs.job-status, 'in_progress')
-      uses: ./.github/workflows/Build-OpenWRT.yml
 
 #    - name: Save New Commit Hash
 #      if: steps.cacheHash.outputs.cache-hit != 'true'
