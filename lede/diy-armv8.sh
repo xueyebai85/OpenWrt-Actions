@@ -16,6 +16,8 @@
 # Hostname
 sed -i 's/OpenWrt/qnmlgb/g' package/base-files/files/bin/config_generate
 
+sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/arm/index.htm
+
 # Enable AAAA
 sed -i 's/filter_aaaa	1/filter_aaaa	0/g' package/network/services/dnsmasq/files/dhcp.conf
 
