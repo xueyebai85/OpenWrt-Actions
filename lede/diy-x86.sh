@@ -16,6 +16,8 @@
 # Hostname
 sed -i 's/OpenWrt/qnmlgb/g' package/base-files/files/bin/config_generate
 
+sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/arm/index.htm
+
 # Timezone
 #sed -i "s/'UTC'/'CST-8'\n   set system.@system[-1].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
 
