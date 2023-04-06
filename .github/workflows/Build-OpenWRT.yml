@@ -743,14 +743,14 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Delete workflow runs
-        uses: GitRML/delete-workflow-runs@v2
+        uses: Mattraks/delete-workflow-runs@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           retain_days: 1
 
       - name: Remove old Releases
-        uses: dev-drprasad/delete-older-releases@v0.2.1
+        uses: dev-drprasad/delete-older-releases@master
         with:
           repo: ${{ github.repository }}
           keep_latest: 4
