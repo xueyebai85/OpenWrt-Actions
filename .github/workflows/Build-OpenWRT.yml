@@ -23,9 +23,9 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: lede/feeds.conf.default
-  CONFIG_FILE: lede/Build-ARMv8.config
+  CONFIG_FILE: lede/Build-arm.config
   DIY_P1_SH: lede/diy-part1.sh
-  DIY_P2_SH: lede/diy-armv8.sh
+  DIY_P2_SH: lede/diy-arm.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   UPLOAD_COWTRANSFER: false
@@ -173,7 +173,7 @@ jobs:
       run: |
         cd /opt/openwrt_packit
         cp ./files/update*.sh ./output/
-        rm -rf $(find ./output/ -name "sha256sums" -o -name "*.gz.sha")
+        rm -rf $(find ./output/ -name "sha256sums" -o -name "*.gz.sha" -o -name "*.tar.gz")
         cd $GITHUB_WORKSPACE/openwrt/bin
         cp IPK.tar.gz /opt/openwrt_packit/output/
         echo "{status}={success}" >> $GITHUB_OUTPUT
@@ -181,7 +181,7 @@ jobs:
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
       with:
-        name: OpenWrt-ARMv8 ${{ env.DATE }}
+        name: ARMv8-lede ${{ env.DATE }}
         tag: ${{ env.TAG_DATE }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
@@ -333,7 +333,7 @@ jobs:
         mkdir -p ./firmware
         mkdir -p ./package
         rm -rf $(find ../bin/targets/ -name "packages" -o -name "*.buildinfo" -o -name "sha256sums" -o -name "*.manifest")
-        cp -rf $(find ../bin/targets/ -type f) ./firmware/
+        cp -rf $(find ../bin/targets/{*combind*} -type f) ./firmware/
         cp -rf $(find ../bin/packages/ -type f -name "*.ipk") ./package/
         cd ./package
         tar -zcvf IPK.tar.gz *
@@ -354,14 +354,14 @@ jobs:
     - name: Organize files
       id: organize
       run: |
-        cd openwrt/bin/targets/*/*
+        cd openwrt/bin/firmware/
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "{status}={success}" >> $GITHUB_OUTPUT
 
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
       with:
-        name: OpenWrt-x86 ${{ env.PRODUCT_NAME }}${{ env.DATE }}
+        name: x86-lede ${{ env.PRODUCT_NAME }}${{ env.DATE }}
         tag: ${{ env.TAG_DATE }}
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
@@ -400,13 +400,13 @@ jobs:
 
 
   x86-docker:
-    name: x86-docker
+    name: x86d
     runs-on: ubuntu-22.04
     env:
       REPO_URL: https://github.com/coolsnowwolf/lede
       REPO_BRANCH: master
       FEEDS_CONF: lede/feeds.conf.default
-      CONFIG_FILE: lede/Build-x86-Docker.config
+      CONFIG_FILE: lede/Build-x86d.config
       DIY_P1_SH: lede/diy-part1.sh
       DIY_P2_SH: lede/diy-x86.sh
       UPLOAD_BIN_DIR: false
@@ -513,7 +513,7 @@ jobs:
         mkdir -p ./firmware
         mkdir -p ./package
         rm -rf $(find ../bin/targets/ -name "packages" -o -name "*.buildinfo" -o -name "sha256sums" -o -name "*.manifest")
-        cp -rf $(find ../bin/targets/ -type f) ./firmware/
+        cp -rf $(find ../bin/targets/{*combind*} -type f) ./firmware/
         cp -rf $(find ../bin/packages/ -type f -name "*.ipk") ./package/
         cd ./package
         tar -zcvf IPK.tar.gz *
@@ -534,14 +534,14 @@ jobs:
     - name: Organize files
       id: organize
       run: |
-        cd openwrt/bin/targets/*/*
+        cd openwrt/bin/firmware/
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "{status}={success}" >> $GITHUB_OUTPUT
 
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
       with:
-        name: OpenWrt-x86-Docker ${{ env.PRODUCT_NAME }}${{ env.DATE }}
+        name: x86-lede-Docker ${{ env.PRODUCT_NAME }}${{ env.DATE }}
         tag: ${{ env.TAG_DATE }}
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
@@ -687,7 +687,7 @@ jobs:
         mkdir -p ./firmware
         mkdir -p ./package
         rm -rf $(find ../bin/targets/ -name "packages" -o -name "*.buildinfo" -o -name "sha256sums" -o -name "*.manifest" -o -name "profiles.json")
-        cp -rf $(find ../bin/targets/ -type f) ./firmware/
+        cp -rf $(find ../bin/targets/{*combind*} -type f) ./firmware/
         cp -rf $(find ../bin/packages/ -type f -name "*.ipk") ./package/
         cd ./package
         tar -zcvf IPK.tar.gz *
@@ -708,14 +708,14 @@ jobs:
     - name: Organize files
       id: organize
       run: |
-        cd openwrt/bin/targets/*/*
+        cd openwrt/bin/firmware/
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "{status}={success}" >> $GITHUB_OUTPUT
 
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
       with:
-        name: OpenWrt-x86-Original ${{ env.PRODUCT_NAME }}${{ env.DATE }}
+        name: x86-Original ${{ env.PRODUCT_NAME }}${{ env.DATE }}
         tag: ${{ env.TAG_DATE }}
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
