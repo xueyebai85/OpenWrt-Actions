@@ -97,9 +97,10 @@ jobs:
         find dl -size -1024c -exec rm -f {} \;
 
     - name: cache
-      uses: klever1988/cachewrtbuild@main
+      uses: HiGarfield/cachewrtbuild@main
       with:
         ccache: 'true'
+        mixkey: ARMv8
         prefix: ${{ github.workspace }}/openwrt
 
     - name: Compile the firmware
@@ -294,9 +295,10 @@ jobs:
         find dl -size -1024c -exec rm -f {} \;
 
     - name: cache    
-      uses: klever1988/cachewrtbuild@main
+      uses: HiGarfield/cachewrtbuild@main
       with:
         ccache: 'true'
+        mixkey: x86
         prefix: ${{ github.workspace }}/openwrt
 
     - name: Compile the firmware
@@ -322,7 +324,7 @@ jobs:
         mkdir -p ./firmware
         mkdir -p ./package
         rm -rf $(find ../bin/targets/ -name "packages" -o -name "*.buildinfo" -o -name "sha256sums" -o -name "*.manifest")
-        cp -rf $(find ../bin/targets/ -type f -name "*combind*") ./firmware/
+        cp -rf $(find ../bin/targets/ -type f -name "*combined*") ./firmware/
         cp -rf $(find ../bin/packages/ -type f -name "*.ipk") ./package/
         cd ./package
         tar -zcvf IPK.tar.gz *
@@ -473,9 +475,10 @@ jobs:
         find dl -size -1024c -exec rm -f {} \;
 
     - name: cache
-      uses: klever1988/cachewrtbuild@main
+      uses: HiGarfield/cachewrtbuild@main
       with:
         ccache: 'true'
+        mixkey: x86d
         prefix: ${{ github.workspace }}/openwrt
 
     - name: Compile the firmware
@@ -501,7 +504,7 @@ jobs:
         mkdir -p ./firmware
         mkdir -p ./package
         rm -rf $(find ../bin/targets/ -name "packages" -o -name "*.buildinfo" -o -name "sha256sums" -o -name "*.manifest")
-        cp -rf $(find ../bin/targets/ -type f -name "*combind*") ./firmware/
+        cp -rf $(find ../bin/targets/ -type f -name "*combined*") ./firmware/
         cp -rf $(find ../bin/packages/ -type f -name "*.ipk") ./package/
         cd ./package
         tar -zcvf IPK.tar.gz *
@@ -653,9 +656,10 @@ jobs:
         find dl -size -1024c -exec rm -f {} \;
 
     - name: cache
-      uses: klever1988/cachewrtbuild@main
+      uses: HiGarfield/cachewrtbuild@main
       with:
         ccache: 'true'
+        mixkey: x86o
         prefix: ${{ github.workspace }}/openwrt
 
     - name: Compile the firmware
@@ -681,7 +685,7 @@ jobs:
         mkdir -p ./firmware
         mkdir -p ./package
         rm -rf $(find ../bin/targets/ -name "packages" -o -name "*.buildinfo" -o -name "sha256sums" -o -name "*.manifest" -o -name "profiles.json")
-        cp -rf $(find ../bin/targets/ -type f -name "*combind*") ./firmware/
+        cp -rf $(find ../bin/targets/ -type f -name "*combined*") ./firmware/
         cp -rf $(find ../bin/packages/ -type f -name "*.ipk") ./package/
         cd ./package
         tar -zcvf IPK.tar.gz *
