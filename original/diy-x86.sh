@@ -29,7 +29,7 @@ sed -i 's/OpenWrt/nzksm/g' package/base-files/files/bin/config_generate
 
 # Add additional packages
 git clone -b master --single-branch --depth=1 https://github.com/fw876/helloworld.git package/helloworld
-git clone -b packages --single-branch --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
+git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall-packages
 git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
 git clone -b master --single-branch --depth=1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 #git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
