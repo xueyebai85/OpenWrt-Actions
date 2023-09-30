@@ -52,3 +52,6 @@ sed -i '741a\
                 <tr><td width="33%">&#32534;&#35793;&#32773;&#58;&#32;&#83;&#105;&#108;</td><td><a href="https://t.me/passwall2" style="color: black;" target="_blank">&#32676;&#32452;&#38142;&#25509;</a></td></tr>\
                 <tr><td width="33%">&#28304;&#30721;&#58;&#32;&#108;&#101;&#100;&#101;</td><td><a href="https://github.com/coolsnowwolf/lede" style="color: black;" target="_blank">&#28304;&#30721;&#38142;&#25509;</a></td></tr>
 ' package/lean/autocore/files/arm/index.htm
+
+sed -i "s/LINUX_VERSION-5.15 = .133/LINUX_VERSION-5.15 = .127/g" include/kernel-5.15
+sed -i "s/LINUX_KERNEL_HASH-5.15.133 = ef845e7934897b88e4448378ea9daacac19e07f156fe904844fab0a7d8ff5ddd/LINUX_KERNEL_HASH-5.15.127 = add0a575341b263a06e93599fc220a5dd34cb4ca5b9d05097a5db2a061928f26/g" include/kernel-5.15
