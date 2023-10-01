@@ -15,5 +15,3 @@
 
 # Add a feed source
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-
-sed -i "s/PKG_HASH:=376D627767D6C4F05105AB6D497B0D9ABA7111770DD9D995225478209C37EA63/PKG_HASH:=376d627767d6c4f05105ab6d497b0d9aba7111770dd9d995225478209c37ea63/g" feeds/packages/net/curl/Makefile
