@@ -35,6 +35,7 @@ git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt
 git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
 git clone -b master --single-branch --depth=1 https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 #git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
+rm -rf package/helloworld/hysteria
 
 # dockerd去版本验证
 #sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
