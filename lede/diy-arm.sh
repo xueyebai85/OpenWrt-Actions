@@ -39,6 +39,8 @@ git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt
 git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 git clone -b master --single-branch --depth=1 https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 rm -rf package/helloworld/hysteria
+rm -rf package/helloworld/v2ray-core
+rm -rf package/helloworld/v2ray-plugin
 cp -rf $GITHUB_WORKSPACE/patch/brook package/openwrt-passwall-packages
 cp -rf $GITHUB_WORKSPACE/patch/v2ray-core package/openwrt-passwall-packages
 cp -rf $GITHUB_WORKSPACE/patch/v2ray-plugin package/openwrt-passwall-packages
