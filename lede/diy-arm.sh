@@ -39,8 +39,7 @@ git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt
 git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 git clone -b master --single-branch --depth=1 https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 rm -rf package/helloworld/hysteria
-rm -rf package/helloworld/v2ray-core
-rm -rf package/helloworld/v2ray-plugin
+cp -rf $GITHUB_WORKSPACE/patch/golang feeds/packages/lang
 
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
