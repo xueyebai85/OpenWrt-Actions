@@ -36,7 +36,9 @@ git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt
 git clone -b master --single-branch --depth=1 https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 #git clone -b main --single-branch --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 rm -rf package/helloworld/hysteria
-cp -rf $GITHUB_WORKSPACE/patch/golang feeds/packages/lang
+cp -rf $GITHUB_WORKSPACE/patch/brook package/openwrt-passwall-packages
+cp -rf $GITHUB_WORKSPACE/patch/v2ray-core package/openwrt-passwall-packages
+cp -rf $GITHUB_WORKSPACE/patch/v2ray-plugin package/openwrt-passwall-packages
 
 # dockerd去版本验证
 #sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
