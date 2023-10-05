@@ -56,3 +56,6 @@ sed -i '741a\
                 <tr><td width="33%">&#32534;&#35793;&#32773;&#58;&#32;&#83;&#105;&#108;</td><td><a href="https://t.me/passwall2" style="color: black;" target="_blank">&#32676;&#32452;&#38142;&#25509;</a></td></tr>\
                 <tr><td width="33%">&#28304;&#30721;&#58;&#32;&#108;&#101;&#100;&#101;</td><td><a href="https://github.com/coolsnowwolf/lede" style="color: black;" target="_blank">&#28304;&#30721;&#38142;&#25509;</a></td></tr>
 ' package/lean/autocore/files/arm/index.htm
+
+sed -i "s/1.5.5/1.5.2/g" feeds/packages/utils/zstd/Makefile
+sed -i "s/9c4396cc829cfae319a6e2615202e82aad41372073482fce286fac78646d3ee4/7c42d56fac126929a6a85dbc73ff1db2411d04f104fae9bdea51305663a83fd0/g" feeds/packages/utils/zstd/Makefile
