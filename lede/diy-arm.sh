@@ -41,7 +41,6 @@ git clone -b master --single-branch --depth=1 https://github.com/Leo-Jo-My/luci-
 rm -rf package/helloworld/hysteria
 rm -rf package/helloworld/v2ray-core
 rm -rf package/helloworld/v2ray-plugin
-cp -rf $GITHUB_WORKSPACE/patch/v2ray-plugin package/openwrt-passwall-packages
 
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
@@ -57,5 +56,4 @@ sed -i '741a\
                 <tr><td width="33%">&#28304;&#30721;&#58;&#32;&#108;&#101;&#100;&#101;</td><td><a href="https://github.com/coolsnowwolf/lede" style="color: black;" target="_blank">&#28304;&#30721;&#38142;&#25509;</a></td></tr>
 ' package/lean/autocore/files/arm/index.htm
 
-sed -i "s/1.5.5/1.5.2/g" feeds/packages/utils/zstd/Makefile
-sed -i "s/9c4396cc829cfae319a6e2615202e82aad41372073482fce286fac78646d3ee4/7c42d56fac126929a6a85dbc73ff1db2411d04f104fae9bdea51305663a83fd0/g" feeds/packages/utils/zstd/Makefile
+curl -fsSL https://raw.githubusercontent.com/Potterli20/packages/master/utils/zstd/Makefile > feeds/packages/utils/zstd/Makefile

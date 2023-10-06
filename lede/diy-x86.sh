@@ -38,7 +38,6 @@ git clone -b master --single-branch --depth=1 https://github.com/Leo-Jo-My/luci-
 rm -rf package/helloworld/hysteria
 rm -rf package/helloworld/v2ray-core
 rm -rf package/helloworld/v2ray-plugin
-cp -rf $GITHUB_WORKSPACE/patch/v2ray-plugin package/openwrt-passwall-packages
 
 # dockerd去版本验证
 #sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
