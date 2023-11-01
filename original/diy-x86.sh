@@ -37,3 +37,5 @@ rm -rf package/helloworld/hysteria
 
 # dockerd去版本验证
 #sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
+
+curl -fsSL https://raw.githubusercontent.com/yunxi993/OpenWrt-ARMv8/main/patch/Makefile > package/helloworld/luci-app-ssr-plus/Makefile
