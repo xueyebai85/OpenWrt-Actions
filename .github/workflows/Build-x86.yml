@@ -123,12 +123,12 @@ jobs:
       run: |
         cd ./openwrt/bin
         mkdir -p ./firmware
-#        mkdir -p ./package
-#        rm -rf $(find ../bin/targets/ -name "packages" -o -name "*.buildinfo" -o -name "sha256sums" -o -name "*.manifest")
+        mkdir -p ./package
+        rm -rf $(find ../bin/targets/ -name "packages" -o -name "*.buildinfo" -o -name "sha256sums" -o -name "*.manifest")
         cp -rf $(find ../bin/targets/ -type f -name "*combined*") ./firmware/
-#        cp -rf $(find ../bin/packages/ -type f -name "*.ipk") ./package/
-#        cd ./package
-#        tar -zcvf IPK.tar.gz *
+        cp -rf $(find ../bin/packages/ -type f -name "*.ipk") ./package/
+        cd ./package
+        tar -zcvf IPK.tar.gz *
         mv -f IPK.tar.gz ../firmware/
 #
 #    - name: Deliver package
