@@ -128,8 +128,8 @@ jobs:
         cp -rf $(find ../bin/targets/ -type f -name "*combined*") ./firmware/
         cp -rf $(find ../bin/packages/ -type f -name "*.ipk") ./package/
         cd ./package
-        tar -zcvf IPK.tar.gz *
-        mv -f IPK.tar.gz ../firmware/
+#        tar -zcvf IPK.tar.gz *
+#        mv -f IPK.tar.gz ../firmware/
 #
 #    - name: Deliver package
 #      uses: actions/upload-artifact@v3
