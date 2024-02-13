@@ -10,20 +10,6 @@ on:
         required: false
         default: 'false'
 
-env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
-  FEEDS_CONF: lede/feeds.conf.default
-  CONFIG_FILE: lede/Build-arm.config
-  DIY_P1_SH: lede/diy-part1.sh
-  DIY_P2_SH: lede/diy-arm.sh
-  UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: false
-  UPLOAD_COWTRANSFER: false
-  UPLOAD_WETRANSFER: false
-  UPLOAD_RELEASE: false
-  TZ: Asia/Shanghai
-
 jobs:
   x86:
     name: x86
