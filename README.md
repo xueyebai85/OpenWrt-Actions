@@ -3,7 +3,7 @@
 ![GitHub Forks](https://img.shields.io/github/forks/yunxi993/OpenWrt-ARMv8.svg?style=flat-square&label=Forks&logo=github)
 
 * #### Telegram：[频道](https://t.me/OpenWrt_Yuan) | [群组](https://t.me/passwall2)
-* #### 固件下载：https://github.com/yunxi993/OpenWrt-ARMv8/releases
+* #### 固件下载：[https://github.com/xueyebai/OpenWrt-Actions/releases]
 * #### 默认IP：192.168.1.1
 * #### 默认密码:password
 #
@@ -26,6 +26,7 @@
 
 
 # 感谢
+- yunxi993
 - flippy
 - P3TERX
 - Microsoft Azure
