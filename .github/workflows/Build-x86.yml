@@ -1,5 +1,5 @@
 
-name: Build-x86001
+name: Build-x86
 
 on:
   repository_dispatch:
