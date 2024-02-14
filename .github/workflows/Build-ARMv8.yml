@@ -131,12 +131,12 @@ jobs:
 #        cd ./package
 #        tar -zcvf IPK.tar.gz *
 #        mv -f IPK.tar.gz ../
-
-    - name: Deliver package
-      uses: actions/upload-artifact@v3
-      with:
-        name: ARMv8_IPK ${{ env.FILE_DATE }}
-        path: ./openwrt/bin/package/
+#
+#    - name: Deliver package
+#      uses: actions/upload-artifact@v3
+#      with:
+#        name: ARMv8_IPK ${{ env.FILE_DATE }}
+#        path: ./openwrt/bin/package/
 
     - name: Deliver firmware
       uses: actions/upload-artifact@v3
