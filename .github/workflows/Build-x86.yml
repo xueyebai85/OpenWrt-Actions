@@ -20,7 +20,7 @@ jobs:
       FEEDS_CONF: feeds.conf.default
       CONFIG_FILE: lede/Build-x86.config
       DIY_P1_SH: lede/diy-part1.sh
-      DIY_P2_SH: lede/diy-x86.sh
+      DIY_P2_SH: lede/diy-part2.sh
       UPLOAD_BIN_DIR: false
       UPLOAD_FIRMWARE: false
       UPLOAD_COWTRANSFER: false
