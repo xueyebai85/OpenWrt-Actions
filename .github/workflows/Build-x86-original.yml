@@ -18,9 +18,9 @@ jobs:
       REPO_URL: https://github.com/openwrt/openwrt
       REPO_BRANCH: main
       FEEDS_CONF: feeds.conf.default
-      CONFIG_FILE: original/Build-x86.config
-      DIY_P1_SH: original/diy-part1-or.sh
-      DIY_P2_SH: original/diy-part2.sh
+      CONFIG_FILE: lede/Build-x86.config
+      DIY_P1_SH: lede/diy-part1.sh
+      DIY_P2_SH: lede/diy-part2.sh
       UPLOAD_BIN_DIR: false
       UPLOAD_FIRMWARE: false
       UPLOAD_COWTRANSFER: false
