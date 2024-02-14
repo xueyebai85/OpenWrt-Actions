@@ -14,5 +14,5 @@
 #sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
 
 # Modify default theme
-sed -i 's/+luci-app-opkg/+luci-app-opkg  \\\n        +luci-theme-argon +luci-app-argon-config  \\\n        +luci-app-openclash +luci-app-passwall +luci-app-passwall2  \\\n        +luci-app-ddns +wget-nossl +luci-app-filetransfer /g' feeds/luci/collections/luci/Makefile
+sed -i 's/+luci-theme-bootstrap /  \\\n        +luci-theme-argon +luci-app-argon-config  \\\n        +luci-app-openclash +luci-app-passwall +luci-app-passwall2  \\\n        +luci-app-ddns +wget-nossl +luci-app-filetransfer  /g' feeds/luci/collections/luci/Makefile
 #sed -i 's/+luci-app-samba4 //g' package/lean/autosamba/Makefile
