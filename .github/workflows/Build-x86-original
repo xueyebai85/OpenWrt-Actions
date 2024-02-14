@@ -1,5 +1,5 @@
 
-name: Build-OpenWRT
+name: x86-original
 
 on:
   repository_dispatch:
