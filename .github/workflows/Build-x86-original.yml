@@ -127,9 +127,9 @@ jobs:
         rm -rf $(find ../bin/targets/ -name "packages" -o -name "*.buildinfo" -o -name "sha256sums" -o -name "*.manifest" -o -name "profiles.json")
         cp -rf $(find ../bin/targets/ -type f -name "*combined*") ./firmware/
         cp -rf $(find ../bin/packages/ -type f -name "*.ipk") ./package/
-        cd ./package
-        tar -zcvf IPK.tar.gz *
-        mv -f IPK.tar.gz ../firmware/
+#        cd ./package
+#        tar -zcvf IPK.tar.gz *
+#        mv -f IPK.tar.gz ../firmware/
 
     - name: Deliver package
       uses: actions/upload-artifact@v3
