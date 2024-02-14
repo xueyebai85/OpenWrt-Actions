@@ -1,5 +1,5 @@
 
-name: Build-OpenWRT
+name: Build-ARMv8
 
 on:
   repository_dispatch:
