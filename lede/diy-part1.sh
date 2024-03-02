@@ -20,12 +20,12 @@ echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;main' >
 echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main' >> 'feeds.conf.default'
 # echo 'src-git infinityfreedom https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git' >>feeds.conf.default
 
-# add golang 1.22.0 
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
-
 # add a theme-argon
 cd package/lean
 rm -rf *argon*
 git clone -b 18.06 https://github.com/xueyebai/luci-theme-argon.git
 git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git
+
+# add golang 1.22.0 
+rm -rf feeds/packages/lang/golang
+git clone -b 22.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
