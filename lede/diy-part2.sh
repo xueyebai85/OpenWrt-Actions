@@ -13,7 +13,7 @@
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
 
-# add golang 1.22.0 
+# up golang 1.22.0 
 rm -rf feeds/packages/lang/golang
 git clone -b 22.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
