@@ -1,6 +1,4 @@
 [![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&label=LICENSE)](https://github.com/yunxi993/OpenWrt-ARMv8/blob/main/LICENSE)
-![GitHub Stars](https://img.shields.io/github/stars/yunxi993/OpenWrt-ARMv8.svg?style=flat-square&label=Stars&logo=github)
-![GitHub Forks](https://img.shields.io/github/forks/yunxi993/OpenWrt-ARMv8.svg?style=flat-square&label=Forks&logo=github)
 
 * #### Telegram： [群组](https://t.me/passwall2)
 * #### 固件下载：[https://github.com/xueyebai/OpenWrt-Actions/releases]
