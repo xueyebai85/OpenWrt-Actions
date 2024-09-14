@@ -13,9 +13,9 @@
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
 
-# up golang 1.22.0 
+# up golang 1.23.x
 rm -rf feeds/packages/lang/golang
-git clone -b 22.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+git clone -b 23.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
 # Modify default theme
 sed -i 's/+luci-theme-bootstrap /  \\\n        +luci-theme-argon +luci-app-argon-config +luci-app-netspeedtest  \\\n        +luci-app-openclash +luci-app-passwall +luci-app-passwall2  \\\n        +luci-app-ddns +luci-app-smartdns luci-app-mosdns +wget-nossl +luci-app-filetransfer  /g' feeds/luci/collections/luci/Makefile
