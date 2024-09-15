@@ -18,5 +18,5 @@ rm -rf feeds/packages/lang/golang
 git clone -b 23.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
 # Modify default theme
-sed -i 's/+luci-theme-bootstrap /  \\\n        +luci-theme-argon +luci-app-argon-config +luci-app-netspeedtest  \\\n        +luci-app-openclash +luci-app-passwall +luci-app-passwall2  \\\n        +luci-app-ddns +luci-app-smartdns +wget-nossl +luci-app-filetransfer  /g' feeds/luci/collections/luci/Makefile
+sed -i 's/+luci-theme-bootstrap /  \\\n        +luci-theme-argon +luci-app-argon-config +luci-app-netspeedtest  \\\n        +luci-app-openclash +luci-app-passwall +luci-app-ssr-plus +luci-app-mosdns  \\\n        +luci-app-ddns +luci-app-smartdns +wget-nossl +luci-app-filetransfer  /g' feeds/luci/collections/luci/Makefile
 #sed -i 's/+luci-app-samba4 //g' package/lean/autosamba/Makefile
