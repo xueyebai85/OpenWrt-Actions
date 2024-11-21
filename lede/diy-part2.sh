@@ -20,3 +20,7 @@ git clone -b 23.x https://github.com/sbwml/packages_lang_golang feeds/packages/l
 # Modify default theme
 sed -i 's/+luci-theme-bootstrap /  \\\n        +luci-theme-argon +luci-app-argon-config  \\\n        +luci-app-openclash +luci-app-passwall  \\\n        +luci-app-ddns +luci-app-smartdns +wget-nossl +luci-app-filetransfer +luci-app-upnp  /g' feeds/luci/collections/luci/Makefile
 #sed -i 's/+luci-app-samba4 //g' package/lean/autosamba/Makefile
+
+cd feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img
+rm -rf bg1.jpg
+wget https://github.com/xueyebai/OpenWrt-Actions/edit/main/lede/bg1.jpg
