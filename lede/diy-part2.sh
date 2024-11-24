@@ -22,5 +22,5 @@ sed -i 's/+luci-theme-bootstrap /  \\\n        +luci-theme-argon +luci-app-argon
 #sed -i 's/+luci-app-samba4 //g' package/lean/autosamba/Makefile
 
 cd feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img
-rm -rf bg1.jpg
+sudo rm -rf bg1.jpg
 sudo wget https://github.com/xueyebai/OpenWrt-Actions/edit/main/lede/bg1.jpg
