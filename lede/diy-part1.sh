@@ -21,5 +21,3 @@ echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;main' >
 # echo 'src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' >>feeds.conf.default
 
 # add plugins
-cd package/lean
-git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git
