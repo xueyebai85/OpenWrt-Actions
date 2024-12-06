@@ -7,7 +7,7 @@
 #
 # https://github.com/P3TERX/Actions-OpenWrt
 # File name: diy-part3.sh
-# Description: OpenWrt DIY script part 2 (After Update feeds)
+# Description: OpenWrt DIY script part 3 (After Update feeds)
 #
 
 # Modify default IP
