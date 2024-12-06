@@ -16,7 +16,3 @@
 # up golang 1.23.x
 rm -rf feeds/packages/lang/golang
 git clone -b 23.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
-
-# cd feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img
-# sudo rm -rf bg1.jpg
-# sudo wget https://github.com/xueyebai/OpenWrt-Actions/edit/main/lede/bg1.jpg
