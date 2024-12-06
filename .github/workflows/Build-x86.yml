@@ -21,6 +21,7 @@ jobs:
       CONFIG_FILE: lede/Build-x86.config
       DIY_P1_SH: lede/diy-part1.sh
       DIY_P2_SH: lede/diy-part2.sh
+      DIY_P3_SH: lede/diy-part3.sh
       UPLOAD_BIN_DIR: false
       UPLOAD_FIRMWARE: false
       UPLOAD_COWTRANSFER: false
@@ -75,6 +76,14 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
+    - name: Modify feeds
+      run: |
+        if [ -d "openwrt/feeds" ]; then
+          chmod +x $DIY_P2_SH
+          cd openwrt
+          $GITHUB_WORKSPACE/$DIY_P2_SH
+        fi
+
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
@@ -82,9 +91,9 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_P2_SH
+        chmod +x $DIY_P3_SH
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P2_SH
+        $GITHUB_WORKSPACE/$DIY_P3_SH
 
     - name: Download package
       id: package
