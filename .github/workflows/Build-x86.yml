@@ -13,7 +13,7 @@ on:
 jobs:
   x86:
     name: x86
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       REPO_URL: https://github.com/coolsnowwolf/lede
       REPO_BRANCH: master
@@ -141,13 +141,13 @@ jobs:
 #        mv -f IPK.tar.gz ../firmware/
 #
 #    - name: Deliver package
-#      uses: actions/upload-artifact@v3
+#      uses: actions/upload-artifact@v4
 #      with:
 #        name: x86_IPK ${{ env.FILE_DATE }}
 #        path: ./openwrt/bin/package/
 
     - name: Deliver firmware
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: x86_firmware ${{ env.FILE_DATE }}
         path: ./openwrt/bin/firmware/
