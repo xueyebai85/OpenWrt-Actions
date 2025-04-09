@@ -16,9 +16,11 @@ env:
   REPO_BRANCH: master
 
 on:
+  repository_dispatch:
   workflow_dispatch:
   schedule:
-    - cron: 0 22 */3 * *
+   - cron: 0 21 * * 4
+   #   分,时,日,月,星期。每周五 21时执行一次 (UTC时间)
 
 jobs:
   check:
